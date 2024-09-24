@@ -115,4 +115,10 @@ public class Utente {
     }
 
 
+    @Override
+    public String toString(){
+        return "Nome: "+ nome + " , Género: " + genero + " , Idade: " + idade + " , Altura: " + altura + " , Peso: " + peso;
+    }
+
+
 }
