@@ -50,6 +50,7 @@ public class Utente {
         this.peso = peso;
         instanceNumber++;
     }
+
     public static void setInstanceNumber(int instanceNumber) {
         Utente.instanceNumber = instanceNumber;
     }
@@ -115,10 +116,100 @@ public class Utente {
     }
 
 
+
+    // method to calculate age difference
+    // this method returns the age difference
+
+    public int idadeDif(Utente utente){
+        int difIdade = idade - utente.idade;
+        if(difIdade < 0){
+            //difIdade = (difIdade *(-2) )/ 2;
+            difIdade = difIdade * (-1);
+            System.out.println(utente.nome + " é mais velho!");
+        }
+        else if(difIdade == 0){
+            System.out.println("Não há diferença de idades.");
+            return 0;
+        }
+        else{
+            System.out.println(nome + " é mais velho!");
+            return difIdade;
+        }
+        return difIdade;
+    }
+
+
+//    public double calcularIMC(double peso , double altura){
+//        String classificacao="";
+//        double imc = peso /(altura*altura);
+//        if(imc<18){
+//            System.out.println(classificacao);
+//        }
+//        else if(imc>=18 && imc<=25){
+//            System.out.println(classificacao);
+//        }
+//        else if(imc>25){
+//            classificacao ="Obeso";
+//            System.out.println(classificacao);
+//        }
+//        else{
+//            return 0;
+//        }
+//
+//        return imc;
+//    }
+
+
+    // method to calculate BMI
+    // this method returns the state of persons health
+    public double calcularIMC(){
+        String classificacao="";
+        double imc = peso /(altura*altura);
+        if(imc<state1){
+            classificacao ="Magro";
+            System.out.print(classificacao+", IMC: ");
+            return imc;
+        }
+        else if(imc>=state1 && imc<=state2){
+            classificacao ="Saudável";
+            System.out.print(classificacao+", IMC: ");
+            return imc;
+        }
+        else if(imc>state2){
+            classificacao ="Obeso";
+            System.out.print(classificacao+", IMC: ");
+            return imc;
+        }
+        else{
+            return 0;
+        }
+
+
+    }
+
+    public void getDegreeObesity(){
+
+    }
+
+
+
+    // method to check if the person is healthy
+    // returns if its healthy or not
+    public void checkHealthy(){
+        double valueIMC = calcularIMC();
+        if (valueIMC >= state1 && valueIMC<= state2){
+            System.out.println("User is healthy");
+        }
+        else{
+            System.out.println("User is not healthy");
+        }
+    }
+
+
+
     @Override
     public String toString(){
         return "Nome: "+ nome + " , Género: " + genero + " , Idade: " + idade + " , Altura: " + altura + " , Peso: " + peso;
     }
-
 
 }
