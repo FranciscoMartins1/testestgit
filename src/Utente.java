@@ -9,7 +9,7 @@ public class Utente {
 
     private int state1 = 18;
     private int state2 = 25;
-
+.
      */
 
 
